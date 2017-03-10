@@ -17,18 +17,19 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textViewLargeur" />
+        android:id="@+id/textViewLargeur"
+        android:textAppearance="@android:style/TextAppearance.Material.Title" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Largeur"
         android:ems="10"
         android:id="@+id/editTextLargeur"
         android:layout_below="@+id/textViewLargeur"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="Largeur" />
 
     <TextView
         android:text="Hauteur"
@@ -37,18 +38,19 @@
         android:layout_below="@+id/editTextLargeur"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textViewHauteur" />
+        android:id="@+id/textViewHauteur"
+        android:textAppearance="@android:style/TextAppearance.Material.Title" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Hauteur"
         android:ems="10"
         android:id="@+id/editTextHauteur"
         android:layout_below="@+id/textViewHauteur"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="Hauteur" />
 
     <Button
         android:layout_width="wrap_content"
