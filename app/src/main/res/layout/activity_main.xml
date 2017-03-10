@@ -69,4 +69,12 @@
         android:layout_alignRight="@+id/button_draw"
         android:layout_alignEnd="@+id/button_draw"
         android:id="@+id/button_erase" />
+
+    <com.example.melvin.androidbases.GeometryLayer
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/calque_dessin"
+        android:layout_below="@+id/button_erase"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GeometryLayer extends View {
     Paint paint = new Paint();
-    List<RectangleGeo> list = new ArrayList<>();
+    List<RectangleGeo> listRectangles = new ArrayList<>();
 
     public GeometryLayer(Context context) {
         super(context);
@@ -36,18 +36,21 @@ public class GeometryLayer extends View {
     }
 
     protected void addRectangleGeo(RectangleGeo rectangleGeo) {
-        list.add(rectangleGeo);
+        listRectangles.add(rectangleGeo);
     }
 
     protected void eraseList() {
-        list.clear();
+        listRectangles.clear();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawRect(30, 30, 80, 80, paint);
-        canvas.drawRect(50, 50, 100, 100, paint);
+        for (RectangleGeo rectangle : listRectangles) {
+            canvas.drawRect(rectangle.getHauteur(), rectangle.getHauteur(), rectangle.getLargeur(), rectangle.getLargeur(), paint);
+        }
+
+        invalidate();
     }
 }

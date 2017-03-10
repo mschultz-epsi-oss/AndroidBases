@@ -21,12 +21,18 @@ public class MainActivity extends AppCompatActivity {
         buttonDraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int largeur = Integer.parseInt(editTextLargeur.getText().toString());
-                int hauteur = Integer.parseInt(editTextHauteur.getText().toString());
+                String largeurStr = editTextLargeur.getText().toString();
+                String hauteurStr = editTextHauteur.getText().toString();
+
+                if (largeurStr.equals("") || hauteurStr .equals("")) {
+                    Integer largeur = Integer.parseInt(largeurStr);
+                    Integer hauteur = Integer.parseInt(hauteurStr);
+
+                    System.out.println(largeur);
+                    System.out.println(hauteur);
+                }
 
                 System.out.println("button draw clicked");
-                System.out.println(largeur);
-                System.out.println(hauteur);
             }
         });
     }
