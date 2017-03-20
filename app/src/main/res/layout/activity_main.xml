@@ -23,13 +23,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editTextLargeur"
         android:layout_below="@+id/textViewLargeur"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Largeur" />
+        android:hint="Largeur"
+        android:inputType="number" />
 
     <TextView
         android:text="Hauteur"
@@ -44,13 +44,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editTextHauteur"
         android:layout_below="@+id/textViewHauteur"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Hauteur" />
+        android:hint="Hauteur"
+        android:inputType="number" />
 
     <Button
         android:layout_width="wrap_content"
