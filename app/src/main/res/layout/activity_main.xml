@@ -1,80 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.melvin.androidbases.MainActivity">
 
     <TextView
         android:text="Largeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/textViewLargeur"
-        android:textAppearance="@android:style/TextAppearance.Material.Title" />
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/editTextLargeur"
-        android:layout_below="@+id/textViewLargeur"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:hint="Largeur"
-        android:inputType="number" />
+        android:inputType="number"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLargeur"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/textViewLargeur" />
 
     <TextView
         android:text="Hauteur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextLargeur"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/textViewHauteur"
-        android:textAppearance="@android:style/TextAppearance.Material.Title" />
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLargeur"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextLargeur" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/editTextHauteur"
-        android:layout_below="@+id/textViewHauteur"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:hint="Hauteur"
-        android:inputType="number" />
+        android:inputType="number"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/editTextLargeur"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLargeur"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextLargeur" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextHauteur"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/button_draw"
-        android:text="Dessiner" />
+        android:text="Dessiner"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHauteur"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextHauteur" />
 
     <Button
         android:text="Effacer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_draw"
-        android:layout_alignRight="@+id/button_draw"
-        android:layout_alignEnd="@+id/button_draw"
-        android:id="@+id/button_erase" />
+        android:id="@+id/button_erase"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button_draw"
+        app:layout_constraintTop_toBottomOf="@+id/button_draw"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button_draw" />
 
     <com.example.melvin.androidbases.GeometryLayer
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
         android:id="@+id/calque_dessin"
-        android:layout_below="@+id/button_erase"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-</RelativeLayout>
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/button_erase"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp" />
+</android.support.constraint.ConstraintLayout>

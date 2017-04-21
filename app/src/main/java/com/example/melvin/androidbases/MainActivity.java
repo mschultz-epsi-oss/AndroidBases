@@ -7,52 +7,68 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.melvin.androidbases.Model.RectangleGeo;
 
 public class MainActivity extends AppCompatActivity {
+
+    private GeometryLayer geometryLayer;
+    private EditText widthField;
+    private EditText heightField;
+    private Button button_draw;
+    private Button button_erase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Context context = getApplicationContext();
-        final Canvas canvas = new Canvas();
+        geometryLayer = (GeometryLayer)findViewById(R.id.calque_dessin);
+        widthField = (EditText)findViewById(R.id.editTextLargeur);
+        heightField = (EditText)findViewById(R.id.editTextHauteur);
+        button_draw = (Button)findViewById(R.id.button_draw);
+        button_erase = (Button)findViewById(R.id.button_erase);
 
-        final EditText editTextLargeur = (EditText)findViewById(R.id.editTextLargeur);
-        final EditText editTextHauteur = (EditText)findViewById(R.id.editTextHauteur);
-        Button buttonDraw = (Button)findViewById(R.id.button_draw);
-        Button buttonErase = (Button)findViewById(R.id.button_erase);
+//        geometryLayer.addRectangleGeo(new RectangleGeo(200, 300));
 
-        buttonDraw.setOnClickListener(new View.OnClickListener() {
+        button_draw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String largeurStr = editTextLargeur.getText().toString();
-                String hauteurStr = editTextHauteur.getText().toString();
-
-                if (!(largeurStr.equals("") || hauteurStr.equals(""))) {
-                    Integer largeur = Integer.parseInt(largeurStr);
-                    Integer hauteur = Integer.parseInt(hauteurStr);
-
-                    System.out.println(largeur);
-                    System.out.println(hauteur);
-
-                    RectangleGeo rectangleGeo = new RectangleGeo();
-                    rectangleGeo.setHauteur(hauteur);
-                    rectangleGeo.setLargeur(largeur);
-                    System.out.println(rectangleGeo);
-
-                    GeometryLayer geometryLayer = new GeometryLayer(context);
-                    geometryLayer.addRectangleGeo(rectangleGeo);
-                    System.out.println(geometryLayer);
-                    System.out.println(geometryLayer.listRectangles.size());
-
-//                    geometryLayer.onDraw(canvas);
-                } else {
-                    System.out.println("Please set width and height");
-                }
-
-                System.out.println("button draw clicked");
+                drawRect(button_draw);
             }
         });
+
+        button_erase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearLayer(button_erase);
+            }
+        });
+    }
+
+    private int readIntFromField(EditText field) {
+        int value = 0;
+        try {
+            value = Integer.parseInt(field.getText().toString());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        return value;
+    }
+
+    public void drawRect(View button) {
+        int width = readIntFromField(widthField);
+        int height = readIntFromField(heightField);
+        if (width > 0 && height > 0) {
+            geometryLayer.addRectangleGeo(new RectangleGeo(width, height));
+        } else {
+            Toast.makeText(this, "Saisie incorrecte", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void clearLayer(View button) {
+        geometryLayer.eraseList();
     }
 }
